@@ -2,15 +2,25 @@ import 'package:dio/dio.dart';
 import 'package:todo_provs_riverpod/app/core/models/todo_model.dart';
 
 class TodoDataSource {
-  Future<List<TodoModel>> getAll() async {
+  Dio dio = Dio(BaseOptions(baseUrl: 'http://192.168.10.105:8080'));
+  Future<List<TodoModel>> get() async {
     try {
-      final response = await Dio().get('http://localhost:8080/todos');
+      final response = await dio.get('/todos');
 
       if (response.data.isEmpty) {
         throw Exception('ToDos não encontrados');
       }
       return response.data.map<TodoModel>((e) => TodoModel.fromMap(e)).toList();
     } on DioError catch (e, s) {
+      print('DioError em TodoDataSource get');
+
+      print(e);
+      print(s);
+      // throw Exception();
+      rethrow;
+    } catch (e, s) {
+      print('Error em TodoDataSource get');
+
       print(e);
       print(s);
       // throw Exception();
@@ -20,7 +30,7 @@ class TodoDataSource {
 
   Future<TodoModel> getId(int id) async {
     try {
-      final response = await Dio().get('http://localhost:8080/todos/$id');
+      final response = await dio.get('/todos/$id');
 
       if (response.data.isEmpty) {
         throw Exception('Estudantes não encontrados');
@@ -36,8 +46,7 @@ class TodoDataSource {
   Future<void> toggle(TodoModel model) async {
     try {
       TodoModel modelTemp = model.copyWith(isCompleted: !model.isCompleted);
-      Dio().put('http://localhost:8080/todos/${model.id}',
-          data: modelTemp.toMap());
+      dio.put('/todos/${model.id}', data: modelTemp.toMap());
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -54,7 +63,7 @@ class TodoDataSource {
 
   Future<void> _post(TodoModel model) async {
     try {
-      Dio().post('http://localhost:8080/todos', data: model.toMap());
+      dio.post('/todos', data: model.toMap());
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -63,7 +72,7 @@ class TodoDataSource {
 
   Future<void> _put(TodoModel model) async {
     try {
-      Dio().put('http://localhost:8080/todos/${model.id}', data: model.toMap());
+      dio.put('/todos/${model.id}', data: model.toMap());
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -72,7 +81,7 @@ class TodoDataSource {
 
   Future<void> delete(int id) async {
     try {
-      Dio().delete('http://localhost:8080/todos/$id');
+      dio.delete('/todos/$id');
     } on DioError catch (e) {
       print(e);
       throw Exception();

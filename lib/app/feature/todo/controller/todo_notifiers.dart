@@ -12,11 +12,21 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
   }
 
   Future<List<TodoModel>> _getAll() async {
+    // final response = await Dio().get('http://localhost:8080/todos');
+    // print(response);
     state = const AsyncValue.loading();
 
-    final todoRep = ref.read(todoRepository);
+    try {
+      final todoRep = ref.read(todoRepository);
 
-    return await todoRep.getAll();
+      return await todoRep.get();
+    } catch (e, s) {
+      print('Erro em TodoListAsyncNotifier _getAll');
+      print(e);
+      print(s);
+      state = AsyncValue.error(e, s);
+      return [];
+    }
   }
 
   Future<void> toggle(TodoModel model) async {

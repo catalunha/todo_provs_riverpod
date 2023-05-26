@@ -8,7 +8,7 @@ class TodoRepository {
     required this.todoDataSource,
   });
 
-  Future<List<TodoModel>> getAll() => todoDataSource.getAll();
+  Future<List<TodoModel>> get() => todoDataSource.get();
   Future<TodoModel> getId(int id) => todoDataSource.getId(id);
   Future<void> toggle(TodoModel model) => todoDataSource.toggle(model);
   Future<void> save(TodoModel model) => todoDataSource.save(model);
