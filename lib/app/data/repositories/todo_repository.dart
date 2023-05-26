@@ -9,6 +9,8 @@ class TodoRepository {
   });
 
   Future<List<TodoModel>> getAll() => todoDataSource.getAll();
-  Future<void> toggle(String id) => todoDataSource.toggle(id);
-  Future<void> save(TodoModel todoModel) => todoDataSource.save(todoModel);
+  Future<TodoModel> getId(int id) => todoDataSource.getId(id);
+  Future<void> toggle(TodoModel model) => todoDataSource.toggle(model);
+  Future<void> save(TodoModel model) => todoDataSource.save(model);
+  Future<void> delete(int id) => todoDataSource.delete(id);
 }

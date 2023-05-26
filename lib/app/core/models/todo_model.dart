@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class TodoModel {
-  final String? id;
+  final int? id;
   final String description;
   final bool isCompleted;
   TodoModel({
@@ -11,7 +11,7 @@ class TodoModel {
   });
 
   TodoModel copyWith({
-    String? id,
+    int? id,
     String? description,
     bool? isCompleted,
   }) {
@@ -36,7 +36,7 @@ class TodoModel {
 
   factory TodoModel.fromMap(Map<String, dynamic> map) {
     return TodoModel(
-      id: map['id'],
+      id: map['id']?.toInt(),
       description: map['description'] ?? '',
       isCompleted: map['isCompleted'] ?? false,
     );

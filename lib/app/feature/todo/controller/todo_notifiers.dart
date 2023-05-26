@@ -19,20 +19,20 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
     return await todoRep.getAll();
   }
 
-  Future<void> toggle(String id) async {
+  Future<void> toggle(TodoModel model) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() {
       final todoRep = ref.read(todoRepository);
-      todoRep.toggle(id);
+      todoRep.toggle(model);
       return _getAll();
     });
   }
 
-  Future<void> save(TodoModel todoModel) async {
+  Future<void> save(TodoModel model) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() {
       final todoRep = ref.read(todoRepository);
-      todoRep.save(todoModel);
+      todoRep.save(model);
       return _getAll();
     });
   }

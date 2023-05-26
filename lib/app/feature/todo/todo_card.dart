@@ -19,7 +19,7 @@ class TodoCard extends ConsumerWidget {
         Checkbox(
           value: model.isCompleted,
           onChanged: (value) {
-            ref.read(todosAsyNotProv.notifier).toggle(model.id!);
+            ref.read(todosAsyNotProv.notifier).toggle(model);
           },
         ),
         Expanded(child: Text(model.description)),
