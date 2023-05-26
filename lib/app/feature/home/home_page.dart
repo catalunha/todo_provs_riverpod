@@ -15,7 +15,7 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo com Providers'),
+        title: const Text('ToDo com Riverpod - Providers'),
       ),
       body: const Column(
         children: [
