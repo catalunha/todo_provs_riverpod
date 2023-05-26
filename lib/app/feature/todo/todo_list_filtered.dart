@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,7 +11,7 @@ class TodoListFiltered extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('ConsumerWidget TodoListFiltered build');
+    log('ConsumerWidget TodoListFiltered build');
     final todoListAsyNotProvIW = ref.watch(filteredTodosProv);
     return todoListAsyNotProvIW.when(
       data: (data) {

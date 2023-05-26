@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_provs_riverpod/app/core/models/todo_model.dart';
@@ -11,7 +13,7 @@ class TodoCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('StatelessWidget TodoCard build');
+    log('ConsumerWidget TodoCard build');
 
     return Card(
       margin: const EdgeInsets.all(10),
