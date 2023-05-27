@@ -29,4 +29,6 @@ final countTodosProv = Provider<AsyncValue<int>>((ref) {
 });
 
 final indexProvider = Provider<int>((_) => 0);
-final itemProvider = Provider<TodoModel>((_) => throw UnimplementedError());
+final todoProvider = Provider<TodoModel>((ref) => throw UnimplementedError());
+final listProvider = Provider<AsyncValue<List<TodoModel>>>(
+    (ref) => ref.watch(filteredTodosProv).whenData((value) => value));

@@ -12,8 +12,8 @@ class TodoCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log('ConsumerWidget TodoCard build');
-    final model = ref.read(itemProvider);
+    final model = ref.watch(todoProvider);
+    log('ConsumerWidget TodoCard build ${model.id}');
     return Card(
       margin: const EdgeInsets.all(10),
       child: Row(children: [

@@ -12,8 +12,6 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
   }
 
   Future<List<TodoModel>> _getAll() async {
-    // final response = await Dio().get('http://localhost:8080/todos');
-    // print(response);
     state = const AsyncValue.loading();
 
     try {
@@ -31,19 +29,37 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
 
   Future<void> toggle(TodoModel model) async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() {
+    // try {
+    //   final todoRep = ref.read(todoRepository);
+    //   await todoRep.toggle(model);
+    //   final List<TodoModel> a = [...state.value!];
+    //   // print(a);
+    //   final index = a.indexWhere((element) => element.id == model.id);
+    //   a.replaceRange(index, index + 1, [model]);
+    //   // print(a);
+    //   state = AsyncValue.data(a);
+    // } catch (err, stack) {
+    //   state = AsyncValue.error(err, stack);
+    // }
+    state = await AsyncValue.guard(() async {
       final todoRep = ref.read(todoRepository);
-      todoRep.toggle(model);
-      return _getAll();
+      await todoRep.toggle(model);
+      return await _getAll();
     });
   }
 
   Future<void> save(TodoModel model) async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() {
+    // try {
+    //   final todoRep = ref.read(todoRepository);
+    //   AsyncValue.data(await todoRep.save(model));
+    // } catch (err, stack) {
+    //   AsyncValue.error(err, stack);
+    // }
+    state = await AsyncValue.guard(() async {
       final todoRep = ref.read(todoRepository);
-      todoRep.save(model);
-      return _getAll();
+      await todoRep.save(model);
+      return await _getAll();
     });
   }
 }
