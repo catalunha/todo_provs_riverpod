@@ -8,7 +8,7 @@ class CountTodos extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final countTodos = ref.watch(countTodosProv);
-    return Text('${countTodos.value} ToDos');
+    final countTodos = ref.watch(countTodosProv).asData?.value;
+    return Text('$countTodos ToDos');
   }
 }

@@ -8,13 +8,12 @@ import '../home/save_todo.dart';
 import 'controller/todo_providers.dart';
 
 class TodoCard extends ConsumerWidget {
-  final TodoModel model;
-  const TodoCard({Key? key, required this.model}) : super(key: key);
+  const TodoCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     log('ConsumerWidget TodoCard build');
-
+    final model = ref.read(itemProvider);
     return Card(
       margin: const EdgeInsets.all(10),
       child: Row(children: [
