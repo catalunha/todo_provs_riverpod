@@ -3,7 +3,14 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../core/models/todo_model.dart';
 
-part 'provider_codegen.g.dart';
+part 'provider_codgen.g.dart';
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+// Com o Provider, FutureProvider, StreamProvider
+// Usamos funcoes
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //Exemplo 1
 // Provider sem codgen
@@ -45,24 +52,4 @@ final testRepository1Provider = Provider<TestRepository>(
 @riverpod
 TestRepository testRepository2(TestRepository2Ref ref) {
   return TestRepository(client: ref.watch(restClient2Provider));
-}
-
-// Exemplo 4
-// FutureProvider sem codgen
-final testRepository3Provider = FutureProvider.autoDispose
-    .family<TodoModel, String>(
-        (ref, id) => ref.watch(testRepository1Provider).getById(id));
-// FutureProvider com codgen
-@riverpod
-Future<TodoModel> testeRepository4(TesteRepository4Ref ref,
-    {required String id}) {
-  return ref.watch(testRepository1Provider).getById(id);
-}
-// Exemplo 4
-
-// StreamProvider sem codgen
-// StreamProvider com codgen
-@@riverpod
-Stream<int> values(ValuesRef ref) {
-  return Stream.fromIterable([1,2,3]);
 }
