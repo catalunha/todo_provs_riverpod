@@ -6,7 +6,7 @@ part of 'provider_codgen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$simpleValue2Hash() => r'76efb2c2d63d91f6189f9e6b501b6d5b378dfc86';
+String _$simpleValue2Hash() => r'2d80cfb43010e1dc877ae9061831ff68d084ce60';
 
 /// See also [simpleValue2].
 @ProviderFor(simpleValue2)

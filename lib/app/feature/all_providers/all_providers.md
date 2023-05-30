@@ -88,15 +88,44 @@ Usado para gerenciar estados em nosso aplicativo.
 
 Minhas Abreviações serão
 
-Providers | Abreviação
----|---
-Provider | abcProvider
-FutureProvider | abcFutProvider
-StreamProvider | abcStmProvider
-NotifierProvider | abcNotProvider
-AsyncNotifierProvider | abcAsyNotProvider
-StreamNotifierProvider | abcStmNotProvider
----|---
-StateProvider|abcSttProvider
-StateNotifierProvider|abcSttNotProvider
-ChangeNotifierProvider|abcChgNotProvider
+Providers | Abreviação| annotation
+---|---|---
+Provider | abcProvider | function
+FutureProvider | abcFutProvider | function
+StreamProvider | abcStmProvider| function
+NotifierProvider | abcNotProvider| class
+AsyncNotifierProvider | abcAsyNotProvider| class
+StreamNotifierProvider | abcStmNotProvider| class
+---|---|---
+StateProvider|abcSttProvider| class
+StateNotifierProvider|abcSttNotProvider| class
+ChangeNotifierProvider|abcChgNotProvider| class
+
+
+Function Example:
+Usado para Provider, FutureProvider e StreamProvider.
+```dart
+@riverpod
+String simpleValue(SimpleValue2Ref ref) {
+  ref.read(anotherProvider);
+  return 'StringTest';
+}
+```
+Class Example:
+Usado para NotifierProvider, AsyncNotifierProvider, StreamNotifierProvider
+```dart
+@riverpod
+class Counter extends _$Counter {
+  @override
+  int build() {
+    ref.read(anotherProvider);
+    return 0;
+  }
+
+  void increment() {
+    ref.read(anotherProvider);
+    state++;
+  }
+}
+```
+Os legados StateProvider, StateNotifierProvider e ChangeNotifierProvider devem ser substituidos por alguns dos anteriores

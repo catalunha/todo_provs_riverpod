@@ -18,6 +18,7 @@ final simpleValue1Provider = Provider<String>((ref) => 'StringTest');
 // Provider com codgen
 @riverpod
 String simpleValue2(SimpleValue2Ref ref) {
+  ref.read(simpleValue1Provider);
   return 'StringTest';
 }
 
