@@ -2,7 +2,12 @@
 
 Praticando Riverpod com este ToDo.
 
-Implementando recursos de cache in list e outras coisas.
+Implementando recursos de cache in async list e outras coisas.
+
+# Resumo dos providers em
+
+[Clique aqui](./lib/app/feature/all_providers/all_providers.md)
+
 
 # Start
 

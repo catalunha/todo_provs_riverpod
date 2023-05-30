@@ -5,7 +5,7 @@ import 'provider_codgen.dart';
 part 'notifier_provider_codgen.g.dart';
 
 // novo com NotifierProvider sem codgen
-class Counter3 extends Notifier<int> {
+class Counter3Not extends Notifier<int> {
   @override
   int build() {
     ref.read(simpleValue1Provider);
@@ -20,12 +20,14 @@ class Counter3 extends Notifier<int> {
   }
 }
 
-final counter3Provider = NotifierProvider<Counter3, int>(() => Counter3());
-final counter3aProvider = NotifierProvider<Counter3, int>(Counter3.new);
+final counter3NotProvider =
+    NotifierProvider<Counter3Not, int>(() => Counter3Not());
+final counter3aNotProvider =
+    NotifierProvider<Counter3Not, int>(Counter3Not.new);
 
 // novo com NotifierProvider com codgen
 @riverpod
-class Counter4 extends _$Counter4 {
+class Counter4Not extends _$Counter4Not {
   @override
   int build() {
     ref.read(simpleValue1Provider);

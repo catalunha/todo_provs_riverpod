@@ -4,20 +4,21 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'provider_codgen.dart';
 
 part 'state_notifier_sync_codgen.g.dart';
+// Mostro como transformar um StateNotifier num NotifierProvider
 
 // antigo com StateNotifier sem codgen
-class Counter2 extends StateNotifier<int> {
-  Counter2() : super(0);
+class CounterSttNot extends StateNotifier<int> {
+  CounterSttNot() : super(0);
   void increment() {
     state++;
   }
 }
 
-final counter2Provider =
-    StateNotifierProvider<Counter2, int>((ref) => Counter2());
+final counterSttNotProvider =
+    StateNotifierProvider<CounterSttNot, int>((ref) => CounterSttNot());
 
 // novo com NotifierProvider sem codgen
-class Counter3 extends Notifier<int> {
+class Counter5Not extends Notifier<int> {
   @override
   int build() {
     ref.read(simpleValue1Provider);
@@ -32,12 +33,14 @@ class Counter3 extends Notifier<int> {
   }
 }
 
-final counter3Provider = NotifierProvider<Counter3, int>(() => Counter3());
-final counter3aProvider = NotifierProvider<Counter3, int>(Counter3.new);
+final counter5NotProvider =
+    NotifierProvider<Counter5Not, int>(() => Counter5Not());
+final counter5aNotProvider =
+    NotifierProvider<Counter5Not, int>(Counter5Not.new);
 
 // novo com NotifierProvider com codgen
 @riverpod
-class Counter4 extends _$Counter4 {
+class Counter6Not extends _$Counter6Not {
   @override
   int build() {
     ref.read(simpleValue1Provider);

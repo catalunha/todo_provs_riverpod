@@ -19,7 +19,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo com Riverpod - Providers'),
+        title: const Text('ToDo com Riverpod - com Providers isolados'),
       ),
       body: const Column(
         children: [

@@ -4,13 +4,15 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'provider_codgen.dart';
 
 part 'state_provider_codgen.g.dart';
+
 // Exemplo 6 - Notifier e NotifierProvider (sync)
+// Aqui implemento um StateProvider como um NotifierProvider de duas formas
 
 // antigo com StateProvider sem codgen
-final counter1Provider = StateProvider<int>((ref) => 0);
+final counterSttProvider = StateProvider<int>((ref) => 0);
 
 // novo com NotifierProvider sem codgen
-class Counter3 extends Notifier<int> {
+class CounterNot extends Notifier<int> {
   @override
   int build() {
     ref.read(simpleValue1Provider);
@@ -25,12 +27,13 @@ class Counter3 extends Notifier<int> {
   }
 }
 
-final counter3Provider = NotifierProvider<Counter3, int>(() => Counter3());
-final counter3aProvider = NotifierProvider<Counter3, int>(Counter3.new);
+final counterNotProvider =
+    NotifierProvider<CounterNot, int>(() => CounterNot());
+final counterNotProvider2 = NotifierProvider<CounterNot, int>(CounterNot.new);
 
 // novo com NotifierProvider com codgen
 @riverpod
-class Counter4 extends _$Counter4 {
+class Counter2Not extends _$Counter2Not {
   @override
   int build() {
     ref.read(simpleValue1Provider);

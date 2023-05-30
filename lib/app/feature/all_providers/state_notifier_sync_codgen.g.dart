@@ -6,18 +6,19 @@ part of 'state_notifier_sync_codgen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counter4Hash() => r'582eefe63bbbe86db32ade87921af1272b497a1b';
+String _$counter6NotHash() => r'd028d0de2c6e40c04db85a107b4c67c4898868e7';
 
-/// See also [Counter4].
-@ProviderFor(Counter4)
-final counter4Provider = AutoDisposeNotifierProvider<Counter4, int>.internal(
-  Counter4.new,
-  name: r'counter4Provider',
+/// See also [Counter6Not].
+@ProviderFor(Counter6Not)
+final counter6NotProvider =
+    AutoDisposeNotifierProvider<Counter6Not, int>.internal(
+  Counter6Not.new,
+  name: r'counter6NotProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$counter4Hash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$counter6NotHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Counter4 = AutoDisposeNotifier<int>;
+typedef _$Counter6Not = AutoDisposeNotifier<int>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

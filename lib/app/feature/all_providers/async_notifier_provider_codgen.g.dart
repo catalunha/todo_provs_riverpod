@@ -6,20 +6,20 @@ part of 'async_notifier_provider_codgen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$asyncNumbers3Hash() => r'078994d9c678fc3f0cc060a10ece7ea2bd5e40cb';
+String _$numbers4AsyNotHash() => r'4ce218639d1b85ec8d642f2e77c2d6caf3763bf2';
 
-/// See also [AsyncNumbers3].
-@ProviderFor(AsyncNumbers3)
-final asyncNumbers3Provider =
-    AutoDisposeAsyncNotifierProvider<AsyncNumbers3, List<int>>.internal(
-  AsyncNumbers3.new,
-  name: r'asyncNumbers3Provider',
+/// See also [Numbers4AsyNot].
+@ProviderFor(Numbers4AsyNot)
+final numbers4AsyNotProvider =
+    AutoDisposeAsyncNotifierProvider<Numbers4AsyNot, List<int>>.internal(
+  Numbers4AsyNot.new,
+  name: r'numbers4AsyNotProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$asyncNumbers3Hash,
+      : _$numbers4AsyNotHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AsyncNumbers3 = AutoDisposeAsyncNotifier<List<int>>;
+typedef _$Numbers4AsyNot = AutoDisposeAsyncNotifier<List<int>>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

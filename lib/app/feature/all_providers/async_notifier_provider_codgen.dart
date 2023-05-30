@@ -5,7 +5,7 @@ import 'provider_codgen.dart';
 part 'async_notifier_provider_codgen.g.dart';
 
 // usando AsyncNotifier sem codgen
-class AsyncNumbers2 extends AsyncNotifier<List<int>> {
+class Numbers3AsyNot extends AsyncNotifier<List<int>> {
   @override
   FutureOr<List<int>> build() async {
     ref.read(simpleValue1Provider);
@@ -21,13 +21,14 @@ class AsyncNumbers2 extends AsyncNotifier<List<int>> {
 }
 
 //Aqui nao posso ter autoDispose para isto use nova sintaxe
-final asyncNumbers2Provider =
-    AsyncNotifierProvider<AsyncNumbers2, List<int>>(() => AsyncNumbers2());
-final asyncNumbers2aProvider =
-    AsyncNotifierProvider<AsyncNumbers2, List<int>>(AsyncNumbers2.new);
+final numbers3AsyNotProvider =
+    AsyncNotifierProvider<Numbers3AsyNot, List<int>>(() => Numbers3AsyNot());
+final numbers3aAsyNotProvider =
+    AsyncNotifierProvider<Numbers3AsyNot, List<int>>(Numbers3AsyNot.new);
 
+// usando AsyncNotifier com codgen
 @riverpod
-class AsyncNumbers3 extends _$AsyncNumbers3 {
+class Numbers4AsyNot extends _$Numbers4AsyNot {
   @override
   FutureOr<List<int>> build() async {
     ref.read(simpleValue1Provider);

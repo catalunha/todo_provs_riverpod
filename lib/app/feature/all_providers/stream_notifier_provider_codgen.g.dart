@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'state_notifier_async_codgen.dart';
+part of 'stream_notifier_provider_codgen.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$numbers2AsyNotHash() => r'ca2f82fbdeb726bb401e57d12a4e1d21163b4848';
+String _$streamValues3StmNotHash() =>
+    r'e38822394eb32707b29599bbbcdb4ea9d47d6771';
 
-/// See also [Numbers2AsyNot].
-@ProviderFor(Numbers2AsyNot)
-final numbers2AsyNotProvider =
-    AutoDisposeAsyncNotifierProvider<Numbers2AsyNot, List<int>>.internal(
-  Numbers2AsyNot.new,
-  name: r'numbers2AsyNotProvider',
+/// See also [StreamValues3StmNot].
+@ProviderFor(StreamValues3StmNot)
+final streamValues3StmNotProvider =
+    AutoDisposeStreamNotifierProvider<StreamValues3StmNot, int>.internal(
+  StreamValues3StmNot.new,
+  name: r'streamValues3StmNotProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$numbers2AsyNotHash,
+      : _$streamValues3StmNotHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Numbers2AsyNot = AutoDisposeAsyncNotifier<List<int>>;
+typedef _$StreamValues3StmNot = AutoDisposeStreamNotifier<int>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

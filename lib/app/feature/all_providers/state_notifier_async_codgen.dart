@@ -5,13 +5,15 @@ import 'provider_codgen.dart';
 
 part 'state_notifier_async_codgen.g.dart';
 
+// Mostro como construir um StateNotifier async e substituir por um AsyncNotifier
 // AsyncNotifier e AsyncNotifierProvider (async)
 
 // usando stateNotifier async sem codgen
-class AsyncNumbers extends StateNotifier<AsyncValue<List<int>>> {
-  AsyncNumbers(this.ref) : super(const AsyncData([0]));
+// a desvantagem é que o StateNotifier Async nao tem inicialização assincrona
+class NumbersAsySttNot extends StateNotifier<AsyncValue<List<int>>> {
+  NumbersAsySttNot(this.ref) : super(const AsyncData([0]));
   final Ref ref;
-  Future<void> numbers() async {
+  Future<void> newNumbers() async {
     ref.read(simpleValue1Provider);
 
     state = const AsyncLoading();
@@ -19,12 +21,13 @@ class AsyncNumbers extends StateNotifier<AsyncValue<List<int>>> {
   }
 }
 
-final asyncNumbersProvider =
-    StateNotifierProvider<AsyncNumbers, AsyncValue<List<int>>>(
-        (ref) => AsyncNumbers(ref));
+final numbersAsySttNotProvider =
+    StateNotifierProvider<NumbersAsySttNot, AsyncValue<List<int>>>(
+        (ref) => NumbersAsySttNot(ref));
 
+// A vantagem é que o AsyncNotifier tem inicializaçã assincrona ou nao
 // usando AsyncNotifier sem codgen
-class AsyncNumbers2 extends AsyncNotifier<List<int>> {
+class NumbersAsyNot extends AsyncNotifier<List<int>> {
   @override
   FutureOr<List<int>> build() async {
     ref.read(simpleValue1Provider);
@@ -40,13 +43,13 @@ class AsyncNumbers2 extends AsyncNotifier<List<int>> {
 }
 
 //Aqui nao posso ter autoDispose para isto use nova sintaxe
-final asyncNumbers2Provider =
-    AsyncNotifierProvider<AsyncNumbers2, List<int>>(() => AsyncNumbers2());
-final asyncNumbers2aProvider =
-    AsyncNotifierProvider<AsyncNumbers2, List<int>>(AsyncNumbers2.new);
+final numbersAsyNotProvider =
+    AsyncNotifierProvider<NumbersAsyNot, List<int>>(() => NumbersAsyNot());
+final numbersAsyNotaProvider =
+    AsyncNotifierProvider<NumbersAsyNot, List<int>>(NumbersAsyNot.new);
 
 @riverpod
-class AsyncNumbers3 extends _$AsyncNumbers3 {
+class Numbers2AsyNot extends _$Numbers2AsyNot {
   @override
   FutureOr<List<int>> build() async {
     ref.read(simpleValue1Provider);

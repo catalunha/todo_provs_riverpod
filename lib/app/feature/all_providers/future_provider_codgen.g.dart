@@ -6,7 +6,8 @@ part of 'future_provider_codgen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$testeRepository4Hash() => r'b5b4d91cbf1871237947a1c07a0e6d67c3c15d0a';
+String _$testeRepository4FutHash() =>
+    r'f51a646dab4d9a22a688c523441f7c709299f78f';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,29 +30,29 @@ class _SystemHash {
   }
 }
 
-typedef TesteRepository4Ref = AutoDisposeFutureProviderRef<TodoModel>;
+typedef TesteRepository4FutRef = AutoDisposeFutureProviderRef<TodoModel>;
 
-/// See also [testeRepository4].
-@ProviderFor(testeRepository4)
-const testeRepository4Provider = TesteRepository4Family();
+/// See also [testeRepository4Fut].
+@ProviderFor(testeRepository4Fut)
+const testeRepository4FutProvider = TesteRepository4FutFamily();
 
-/// See also [testeRepository4].
-class TesteRepository4Family extends Family<AsyncValue<TodoModel>> {
-  /// See also [testeRepository4].
-  const TesteRepository4Family();
+/// See also [testeRepository4Fut].
+class TesteRepository4FutFamily extends Family<AsyncValue<TodoModel>> {
+  /// See also [testeRepository4Fut].
+  const TesteRepository4FutFamily();
 
-  /// See also [testeRepository4].
-  TesteRepository4Provider call({
+  /// See also [testeRepository4Fut].
+  TesteRepository4FutProvider call({
     required String id,
   }) {
-    return TesteRepository4Provider(
+    return TesteRepository4FutProvider(
       id: id,
     );
   }
 
   @override
-  TesteRepository4Provider getProviderOverride(
-    covariant TesteRepository4Provider provider,
+  TesteRepository4FutProvider getProviderOverride(
+    covariant TesteRepository4FutProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -70,35 +71,35 @@ class TesteRepository4Family extends Family<AsyncValue<TodoModel>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'testeRepository4Provider';
+  String? get name => r'testeRepository4FutProvider';
 }
 
-/// See also [testeRepository4].
-class TesteRepository4Provider extends AutoDisposeFutureProvider<TodoModel> {
-  /// See also [testeRepository4].
-  TesteRepository4Provider({
+/// See also [testeRepository4Fut].
+class TesteRepository4FutProvider extends AutoDisposeFutureProvider<TodoModel> {
+  /// See also [testeRepository4Fut].
+  TesteRepository4FutProvider({
     required this.id,
   }) : super.internal(
-          (ref) => testeRepository4(
+          (ref) => testeRepository4Fut(
             ref,
             id: id,
           ),
-          from: testeRepository4Provider,
-          name: r'testeRepository4Provider',
+          from: testeRepository4FutProvider,
+          name: r'testeRepository4FutProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$testeRepository4Hash,
-          dependencies: TesteRepository4Family._dependencies,
+                  : _$testeRepository4FutHash,
+          dependencies: TesteRepository4FutFamily._dependencies,
           allTransitiveDependencies:
-              TesteRepository4Family._allTransitiveDependencies,
+              TesteRepository4FutFamily._allTransitiveDependencies,
         );
 
   final String id;
 
   @override
   bool operator ==(Object other) {
-    return other is TesteRepository4Provider && other.id == id;
+    return other is TesteRepository4FutProvider && other.id == id;
   }
 
   @override
@@ -109,4 +110,22 @@ class TesteRepository4Provider extends AutoDisposeFutureProvider<TodoModel> {
     return _SystemHash.finish(hash);
   }
 }
+
+String _$testeRepository6FutHash() =>
+    r'5d4e9a7ba8d1ce079f67ad147c10d3ec0b596b86';
+
+/// See also [testeRepository6Fut].
+@ProviderFor(testeRepository6Fut)
+final testeRepository6FutProvider =
+    AutoDisposeFutureProvider<List<TodoModel>>.internal(
+  testeRepository6Fut,
+  name: r'testeRepository6FutProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$testeRepository6FutHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef TesteRepository6FutRef = AutoDisposeFutureProviderRef<List<TodoModel>>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
