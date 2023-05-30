@@ -10,7 +10,9 @@ class TodoDataSource {
       if (response.data.isEmpty) {
         throw Exception('ToDos não encontrados');
       }
-      return response.data.map<TodoModel>((e) => TodoModel.fromMap(e)).toList();
+      return response.data
+          .map<TodoModel>((e) => TodoModel.fromJson(e))
+          .toList();
     } on DioError catch (e, s) {
       print('DioError em TodoDataSource get');
 
@@ -36,7 +38,7 @@ class TodoDataSource {
         throw Exception('Estudantes não encontrados');
       }
 
-      return TodoModel.fromMap(response.data);
+      return TodoModel.fromJson(response.data);
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -46,7 +48,7 @@ class TodoDataSource {
   Future<void> toggle(TodoModel model) async {
     try {
       TodoModel modelTemp = model.copyWith(isCompleted: !model.isCompleted);
-      dio.put('/todos/${model.id}', data: modelTemp.toMap());
+      dio.put('/todos/${model.id}', data: modelTemp.toJson());
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -63,7 +65,7 @@ class TodoDataSource {
 
   Future<void> _post(TodoModel model) async {
     try {
-      dio.post('/todos', data: model.toMap());
+      dio.post('/todos', data: model.toJson());
     } on DioError catch (e) {
       print(e);
       throw Exception();
@@ -72,7 +74,7 @@ class TodoDataSource {
 
   Future<void> _put(TodoModel model) async {
     try {
-      dio.put('/todos/${model.id}', data: model.toMap());
+      dio.put('/todos/${model.id}', data: model.toJson());
     } on DioError catch (e) {
       print(e);
       throw Exception();
