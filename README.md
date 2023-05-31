@@ -4,7 +4,11 @@ Praticando Riverpod com este ToDo.
 
 Implementando recursos de cache in async list e outras coisas.
 
-# Resumo dos providers em
+Este projeto le ToDos de uma api utilizando o JsonRestServer.
+
+Contem também um resumo muito bom de todos os providers do Riverpod
+
+# Resumo dos providers em Riverpod
 
 [Clique aqui](./lib/app/feature/all_providers/all_providers.md)
 
