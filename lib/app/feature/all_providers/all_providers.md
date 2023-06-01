@@ -82,9 +82,11 @@ Com riverpod annotation defini-se como uma função.
 ### ChangeNotifierProvider
 
 Usado para gerenciar estados em nosso aplicativo.
+Nao tem riverpod_annotation
 
 [Exemplo: em construção...](./)
 
+---
 
 Minhas Abreviações serão
 
