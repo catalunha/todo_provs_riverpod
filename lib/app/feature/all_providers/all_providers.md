@@ -99,9 +99,13 @@ NotifierProvider | abcNotProvider| class
 AsyncNotifierProvider | abcAsyNotProvider| class
 StreamNotifierProvider | abcStmNotProvider| class
 ---|---|---
-StateProvider|abcSttProvider| class
-StateNotifierProvider|abcSttNotProvider| class
-ChangeNotifierProvider|abcChgNotProvider| class
+StateProvider|abcSttProvider| zzz
+StateNotifierProvider|abcSttNotProvider| xxx
+ChangeNotifierProvider|abcChgNotProvider| yyy
+
+xxx = Prefira (Async)NotifierProvider
+yyy = Usado apenas no Go_Router, prefira (Async)NotifierProvider
+zzz = use nomenclatura antiga
 
 
 Function Example:
@@ -113,6 +117,7 @@ String simpleValue(SimpleValue2Ref ref) {
   return 'StringTest';
 }
 ```
+
 Class Example:
 Usado para NotifierProvider, AsyncNotifierProvider, StreamNotifierProvider
 ```dart
@@ -131,3 +136,37 @@ class Counter extends _$Counter {
 }
 ```
 Os legados StateProvider, StateNotifierProvider e ChangeNotifierProvider devem ser substituidos por alguns dos anteriores
+Old Sintaxe:
+
+Example StateProvider:
+```dart
+final counterSttProvider = StateProvider<int>((ref) => 0);
+```
+
+Example StateNotifierProvider:
+```dart
+class CounterSttNot extends StateNotifier<int> {
+  CounterSttNot() : super(0);
+  void increment() {
+    state++;
+  }
+}
+
+final counterSttNotProvider =
+    StateNotifierProvider<CounterSttNot, int>((ref) => CounterSttNot());
+```
+
+Example ChangeNotifierProvider:
+```dart
+class CounterChNot extends ChangeNotifier {
+  CounterChNot();
+  int counter = 0;
+  void increment() {
+    counter++;
+    notifyListeners();
+  }
+}
+
+final counterChNotProvider =
+    ChangeNotifierProvider<CounterChNot>((ref) => CounterChNot());
+```
