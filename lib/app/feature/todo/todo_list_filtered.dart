@@ -11,7 +11,7 @@ class TodoListFiltered extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log('ConsumerWidget TodoListFiltered build');
+    log('TodoListFiltered build');
     final todoListAsyNotProvIW = ref.watch(filteredTodosProv);
     return todoListAsyNotProvIW.when(
       data: (data) {

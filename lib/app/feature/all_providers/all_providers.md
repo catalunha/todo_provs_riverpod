@@ -3,7 +3,9 @@
 O riverpo nos dá alguns provedores. 
 
 # Riverpod e seus Providers
-
+Observações da caminhada:
+* Quando referenciar um xProvider dentro de um outro yProvide use sempre watch em xProvider pois assim evita usar keepAlive=true. Enquanto yProvider estiver sendo ouvido o xProvider estará ativo.
+* 
 A seguir relaciono alguns deles e apresento o que tenho aprendido sobre eles
 
 ## Principais
@@ -81,7 +83,7 @@ Com riverpod annotation defini-se como uma função.
 
 ### ChangeNotifierProvider
 
-Usado para gerenciar estados em nosso aplicativo.
+Usado para gerenciar estados mnutável em nosso aplicativo. Evite. Tente mudar para (Async)NotifierProvider
 Nao tem riverpod_annotation
 
 [Exemplo: em construção...](./)
@@ -99,13 +101,13 @@ NotifierProvider | abcNotProvider| class
 AsyncNotifierProvider | abcAsyNotProvider| class
 StreamNotifierProvider | abcStmNotProvider| class
 ---|---|---
-StateProvider|abcSttProvider| zzz
-StateNotifierProvider|abcSttNotProvider| xxx
-ChangeNotifierProvider|abcChgNotProvider| yyy
+StateProvider|abcSttProvider| *1
+StateNotifierProvider|abcSttNotProvider| *2
+ChangeNotifierProvider|abcChgNotProvider| *3
 
-xxx = Prefira (Async)NotifierProvider
-yyy = Usado apenas no Go_Router, prefira (Async)NotifierProvider
-zzz = use nomenclatura antiga
+*2 = Prefira (Async)NotifierProvider
+*3 = Usado apenas no Go_Router, prefira (Async)NotifierProvider
+*1 = use nomenclatura antiga
 
 
 Function Example:
@@ -135,7 +137,8 @@ class Counter extends _$Counter {
   }
 }
 ```
-Os legados StateProvider, StateNotifierProvider e ChangeNotifierProvider devem ser substituidos por alguns dos anteriores
+Os legados StateProvider, StateNotifierProvider e ChangeNotifierProvider devem ser substituidos por alguns dos anteriores.
+
 Old Sintaxe:
 
 Example StateProvider:

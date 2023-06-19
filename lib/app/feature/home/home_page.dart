@@ -15,11 +15,11 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log('ConsumerWidget HomePage build');
+    log('HomePage build');
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo com Riverpod - com Providers isolados'),
+        title: const Text('ToDo com Riverpod'),
       ),
       body: const Column(
         children: [

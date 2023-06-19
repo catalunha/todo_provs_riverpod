@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +10,7 @@ class CountTodos extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log('CountTodos build');
     final countTodos = ref.watch(countTodosProv).asData?.value;
     return Text('${countTodos ?? "?"} ToDos');
   }

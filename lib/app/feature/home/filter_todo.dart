@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_provs_riverpod/app/feature/todo/controller/todo_states.dart';
@@ -9,6 +11,8 @@ class FilterTodos extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log('FilterTodos build');
+
     final filteredBy = ref.watch(filterTodosByProv);
     return Wrap(
       children: [

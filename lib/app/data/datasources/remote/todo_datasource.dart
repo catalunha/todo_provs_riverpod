@@ -48,7 +48,8 @@ class TodoDataSource {
   Future<void> toggle(TodoModel model) async {
     try {
       TodoModel modelTemp = model.copyWith(isCompleted: !model.isCompleted);
-      dio.put('/todos/${model.id}', data: modelTemp.toJson());
+      await _put(modelTemp);
+      // dio.put('/todos/${model.id}', data: modelTemp.toJson());
     } on DioError catch (e) {
       print(e);
       throw Exception();

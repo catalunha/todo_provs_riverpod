@@ -16,23 +16,25 @@ class TodoCard extends ConsumerWidget {
     log('ConsumerWidget TodoCard build ${model.id}');
     return Card(
       margin: const EdgeInsets.all(10),
-      child: Row(children: [
-        Checkbox(
-          value: model.isCompleted,
-          onChanged: (value) {
-            ref.read(todosAsyNotProv.notifier).toggle(model);
-          },
-        ),
-        Expanded(child: Text(model.description)),
-        IconButton(
-            onPressed: () async {
-              final result = await showSaveTodo(context, model) as TodoModel?;
-              if (result != null) {
-                ref.read(todosAsyNotProv.notifier).save(result);
-              }
+      child: Row(
+        children: [
+          Checkbox(
+            value: model.isCompleted,
+            onChanged: (value) {
+              ref.read(todosAsyNotProv.notifier).toggle(model);
             },
-            icon: const Icon(Icons.edit))
-      ]),
+          ),
+          Expanded(child: Text(model.description)),
+          IconButton(
+              onPressed: () async {
+                final result = await showSaveTodo(context, model) as TodoModel?;
+                if (result != null) {
+                  ref.read(todosAsyNotProv.notifier).save(result);
+                }
+              },
+              icon: const Icon(Icons.edit))
+        ],
+      ),
     );
   }
 }
