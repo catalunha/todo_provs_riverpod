@@ -6,7 +6,7 @@ part 'todo_model.g.dart';
 @freezed
 abstract class TodoModel with _$TodoModel {
   factory TodoModel({
-    String? id,
+    int? id,
     required String title,
     @Default(true) bool isCompleted,
     String? description,

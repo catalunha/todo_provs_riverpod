@@ -6,9 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/models/todo_model.dart';
 import '../todo/controller/todo_providers.dart';
 import '../todo/todo_list_filtered.dart';
-import 'count_todo.dart';
-import 'filter_todo.dart';
-import 'save_todo.dart';
+import '../todo/count_todo.dart';
+import '../todo/filter_todo.dart';
+import '../todo/save_todo.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class HomePage extends ConsumerWidget {
         onPressed: () async {
           final result = await showSaveTodo(context, null) as TodoModel?;
           if (result != null) {
-            ref.read(todosAsyNotProv.notifier).save(result);
+            ref.read(readToDosProvider.notifier).save(result);
           }
         },
         child: const Icon(Icons.add),

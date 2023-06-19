@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_provs_riverpod/app/feature/todo/controller/todo_states.dart';
 
-import '../todo/controller/todo_providers.dart';
+import 'controller/todo_providers.dart';
 
 class FilterTodos extends ConsumerWidget {
   const FilterTodos({Key? key}) : super(key: key);
@@ -13,34 +13,36 @@ class FilterTodos extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     log('FilterTodos build');
 
-    final filteredBy = ref.watch(filterTodosByProv);
+    final filteredBy = ref.watch(toDosFilteredByProvider);
     return Wrap(
       children: [
         TextButton(
           onPressed: () {
-            ref.read(filterTodosByProv.notifier).state = FilterTodosBy.all;
+            ref.read(toDosFilteredByProvider.notifier).set(ToDosFilter.all);
           },
-          style: filteredBy == FilterTodosBy.all
+          style: filteredBy == ToDosFilter.all
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
               : null,
           child: const Text('All'),
         ),
         TextButton(
           onPressed: () {
-            ref.read(filterTodosByProv.notifier).state =
-                FilterTodosBy.completed;
+            ref
+                .read(toDosFilteredByProvider.notifier)
+                .set(ToDosFilter.completed);
           },
-          style: filteredBy == FilterTodosBy.completed
+          style: filteredBy == ToDosFilter.completed
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
               : null,
           child: const Text('Completed'),
         ),
         TextButton(
           onPressed: () {
-            ref.read(filterTodosByProv.notifier).state =
-                FilterTodosBy.unCompleted;
+            ref
+                .read(toDosFilteredByProvider.notifier)
+                .set(ToDosFilter.unCompleted);
           },
-          style: filteredBy == FilterTodosBy.unCompleted
+          style: filteredBy == ToDosFilter.unCompleted
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
               : null,
           child: const Text('unCompleted'),

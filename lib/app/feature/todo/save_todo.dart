@@ -7,8 +7,8 @@ Future<void> showSaveTodo(BuildContext context, TodoModel? todoModel) async {
     barrierDismissible: false,
     context: context,
     builder: (BuildContext context) {
-      final description = TextEditingController();
-      description.text = todoModel == null ? '' : todoModel.description;
+      final title = TextEditingController();
+      title.text = todoModel == null ? '' : todoModel.title;
       return Center(
         child: Card(
           child: Padding(
@@ -20,7 +20,7 @@ Future<void> showSaveTodo(BuildContext context, TodoModel? todoModel) async {
                 todoModel == null
                     ? const Text('Add ToDo')
                     : const Text('Edit ToDo'),
-                TextField(controller: description),
+                TextField(controller: title),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -34,21 +34,20 @@ Future<void> showSaveTodo(BuildContext context, TodoModel? todoModel) async {
                         todoModel == null
                             ? Navigator.pop<TodoModel>(
                                 context,
-                                description.text.isEmpty
+                                title.text.isEmpty
                                     ? null
                                     : TodoModel(
-                                        description: description.text,
-                                        isCompleted: false))
+                                        title: title.text, isCompleted: false))
                             : Navigator.pop<TodoModel>(
                                 context,
-                                description.text.isEmpty
+                                title.text.isEmpty
                                     ? null
                                     : TodoModel(
                                         id: todoModel.id,
-                                        description: description.text,
+                                        title: title.text,
                                         isCompleted: todoModel.isCompleted));
                         // Navigator.pop<TodoModel>(context,
-                        //     description.text.isEmpty ? null : TodoModel(id,description: description.text, isCompleted: false));
+                        //     title.text.isEmpty ? null : TodoModel(id,title: title.text, isCompleted: false));
                       },
                       child: const Row(
                         children: [Icon(Icons.check_circle), Text('Salvar')],

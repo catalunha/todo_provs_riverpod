@@ -2,4 +2,4 @@
 // List<TodoModel>
 
 // 2) Provider para opções de filtro dos ToDos
-enum FilterTodosBy { all, completed, unCompleted }
+enum ToDosFilter { all, completed, unCompleted }

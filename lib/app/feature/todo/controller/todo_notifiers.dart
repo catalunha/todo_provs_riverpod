@@ -15,9 +15,9 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
     state = const AsyncValue.loading();
 
     try {
-      final todoRep = ref.read(todoRepository);
+      final todoRep = ref.read(todoRepositoryProvider);
 
-      return await todoRep.get();
+      return await todoRep.read();
     } catch (e, s) {
       print('Erro em TodoListAsyncNotifier _getAll');
       print(e);
@@ -42,7 +42,7 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
     //   state = AsyncValue.error(err, stack);
     // }
     state = await AsyncValue.guard(() async {
-      final todoRep = ref.read(todoRepository);
+      final todoRep = ref.read(todoRepositoryProvider);
       await todoRep.toggle(model);
       return await _getAll();
     });
@@ -57,7 +57,7 @@ class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
     //   AsyncValue.error(err, stack);
     // }
     state = await AsyncValue.guard(() async {
-      final todoRep = ref.read(todoRepository);
+      final todoRep = ref.read(todoRepositoryProvider);
       await todoRep.save(model);
       return await _getAll();
     });

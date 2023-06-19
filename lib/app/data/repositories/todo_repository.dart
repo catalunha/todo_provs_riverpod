@@ -1,16 +1,35 @@
 import 'package:todo_provs_riverpod/app/core/models/todo_model.dart';
 
-import '../datasources/remote/todo_datasource.dart';
+import '../datasources/remote/jrs/todo_datasource_remote_jrs.dart';
 
 class TodoRepository {
-  final TodoDataSource todoDataSource;
+  final TodoDataSourceRemoteJrs todoDataSourceRemoteJrs;
   TodoRepository({
-    required this.todoDataSource,
+    required this.todoDataSourceRemoteJrs,
   });
 
-  Future<List<TodoModel>> get() => todoDataSource.get();
-  Future<TodoModel> getId(int id) => todoDataSource.getId(id);
-  Future<void> toggle(TodoModel model) => todoDataSource.toggle(model);
-  Future<void> save(TodoModel model) => todoDataSource.save(model);
-  Future<void> delete(int id) => todoDataSource.delete(id);
+  Future<List<TodoModel>> read() async {
+    await Future.delayed(const Duration(seconds: 1));
+    return todoDataSourceRemoteJrs.read();
+  }
+
+  Future<TodoModel> readById(int id) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return todoDataSourceRemoteJrs.readById(id);
+  }
+
+  Future<void> toggle(TodoModel model) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return todoDataSourceRemoteJrs.toggle(model);
+  }
+
+  Future<void> save(TodoModel model) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return todoDataSourceRemoteJrs.save(model);
+  }
+
+  Future<void> delete(int id) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return todoDataSourceRemoteJrs.delete(id);
+  }
 }

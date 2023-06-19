@@ -12,14 +12,14 @@ class TodoListFiltered extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     log('TodoListFiltered build');
-    final todoListAsyNotProvIW = ref.watch(filteredTodosProv);
+    final todoListAsyNotProvIW = ref.watch(toDosFilteredProvider);
     return todoListAsyNotProvIW.when(
       data: (data) {
         return ListView(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             children: [
               for (var i = 0; i < data.length; i++) ...[
-                if (i > 0) const Divider(height: 0),
+                // if (i > 0) const Divider(height: 0),
                 Dismissible(
                   key: ValueKey(data[i].id),
                   onDismissed: (_) {
@@ -27,7 +27,7 @@ class TodoListFiltered extends ConsumerWidget {
                   },
                   child: ProviderScope(
                     overrides: [
-                      todoProvider.overrideWithValue(data[i]),
+                      toDoCurrentProvider.overrideWithValue(data[i]),
                     ],
                     child: const TodoCard(),
                   ),
