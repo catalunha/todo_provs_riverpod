@@ -7,38 +7,6 @@ import 'todo_states.dart';
 part 'todo_providers.g.dart';
 
 // ++++++++++++++++++++++++++++++++++++++++++
-// Nomenclatura Antiga
-// ++++++++++++++++++++++++++++++++++++++++++
-// final todosAsyNotProv =
-//     AsyncNotifierProvider<TodoListAsyncNotifier, List<TodoModel>>(() {
-//   return TodoListAsyncNotifier();
-// });
-
-// final filterTodosByProv = StateProvider<ToDosFilter>((ref) {
-//   return ToDosFilter.all;
-// });
-
-// final filteredTodosProv = Provider<AsyncValue<List<TodoModel>>>((ref) {
-//   final filteredBy = ref.watch(filterTodosByProv);
-//   final allTodos = ref.watch(todosAsyNotProv);
-//   return switch (filteredBy) {
-//     ToDosFilter.completed => allTodos.whenData(
-//         (value) => value.where((element) => element.isCompleted).toList()),
-//     ToDosFilter.unCompleted => allTodos.whenData(
-//         (value) => value.where((element) => !element.isCompleted).toList()),
-//     _ => allTodos
-//   };
-// });
-// final countTodosProv = Provider<AsyncValue<int>>((ref) {
-//   return ref.watch(filteredTodosProv).whenData((value) => value.length);
-// });
-
-// final indexProvider = Provider<int>((_) => 0);
-// final todoProvider = Provider<TodoModel>((ref) => throw UnimplementedError());
-// final listProvider = Provider<AsyncValue<List<TodoModel>>>(
-//     (ref) => ref.watch(filteredTodosProv).whenData((value) => value));
-
-// ++++++++++++++++++++++++++++++++++++++++++
 // Nomenclatura nova
 // ++++++++++++++++++++++++++++++++++++++++++
 

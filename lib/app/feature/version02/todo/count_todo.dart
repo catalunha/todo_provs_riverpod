@@ -12,23 +12,12 @@ class CountTodos extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     log('CountTodos build');
     final toDosCounter = ref.watch(toDosCounterProvider);
-    return Row(
-      children: [
-        toDosCounter.when(data: (data) {
-          return Text("$data");
-        }, error: (e, st) {
-          return const Text('erro');
-        }, loading: () {
-          return const Text("...");
-
-          // return const SizedBox(
-          //   width: 20,
-          //   height: 20,
-          //   child: CircularProgressIndicator(),
-          // );
-        }),
-        const Text(" ToDo's"),
-      ],
-    );
+    return toDosCounter.when(data: (data) {
+      return Text("$data ToDo's");
+    }, error: (e, st) {
+      return const Text('erro');
+    }, loading: () {
+      return const Text("... ToDo's");
+    });
   }
 }

@@ -6,6 +6,9 @@ Implementando recursos de cache in async list e outras coisas.
 
 Este projeto le ToDos de uma api utilizando o JsonRestServer.
 
+A versão 01 usa Riverpod com a sintaxe antiga stateProvider, etc.
+A versão 02 usa Riverpod com a sintaxe nova dos annotations
+
 
 # Resumo dos providers em Riverpod
 

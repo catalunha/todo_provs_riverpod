@@ -8,7 +8,7 @@ import '../todo/controller/todo_providers.dart';
 import '../todo/count_todo.dart';
 import '../todo/filter_todo.dart';
 import '../todo/save_todo.dart';
-import '../todo/todo_list_filtered.dart';
+import '../todo/todo_list.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo com Riverpod'),
+        title: const Text('ToDo com Riverpod - Versao 01'),
       ),
       body: const Column(
         children: [
@@ -32,10 +32,8 @@ class HomePage extends ConsumerWidget {
               ),
             ],
           ),
-          // Divider(),
-          // Flexible(child: TodoList()),
           Divider(),
-          Flexible(child: TodoListFiltered()),
+          Flexible(child: TodoList()),
         ],
       ),
       floatingActionButton: FloatingActionButton(

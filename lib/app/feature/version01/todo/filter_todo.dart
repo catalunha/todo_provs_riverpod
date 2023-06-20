@@ -18,7 +18,9 @@ class FilterTodos extends ConsumerWidget {
       children: [
         TextButton(
           onPressed: () {
-            ref.read(toDosFilteredByProvider.notifier).set(ToDosFilter.all);
+            ref
+                .read(toDosFilteredByProvider.notifier)
+                .update((_) => ToDosFilter.all);
           },
           style: filteredBy == ToDosFilter.all
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
@@ -29,7 +31,7 @@ class FilterTodos extends ConsumerWidget {
           onPressed: () {
             ref
                 .read(toDosFilteredByProvider.notifier)
-                .set(ToDosFilter.completed);
+                .update((_) => ToDosFilter.completed);
           },
           style: filteredBy == ToDosFilter.completed
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
@@ -38,9 +40,8 @@ class FilterTodos extends ConsumerWidget {
         ),
         TextButton(
           onPressed: () {
-            ref
-                .read(toDosFilteredByProvider.notifier)
-                .set(ToDosFilter.unCompleted);
+            ref.read(toDosFilteredByProvider.notifier).state =
+                ToDosFilter.unCompleted;
           },
           style: filteredBy == ToDosFilter.unCompleted
               ? TextButton.styleFrom(foregroundColor: Colors.orange)
