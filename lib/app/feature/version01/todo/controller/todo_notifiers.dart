@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_provs_riverpod/app/core/models/todo_model.dart';
 
-import '../../../data/repositories/repositories_providers.dart';
+import '../../../../data/repositories/repositories_providers.dart';
 
 class TodoListAsyncNotifier extends AsyncNotifier<List<TodoModel>> {
   @override

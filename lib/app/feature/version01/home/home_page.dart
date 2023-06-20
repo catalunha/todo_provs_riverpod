@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/models/todo_model.dart';
+import '../../../core/models/todo_model.dart';
 import '../todo/controller/todo_providers.dart';
-import '../todo/todo_list_filtered.dart';
 import '../todo/count_todo.dart';
 import '../todo/filter_todo.dart';
 import '../todo/save_todo.dart';
+import '../todo/todo_list_filtered.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class HomePage extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CountTodos(),
+              SizedBox(width: 70, child: CountTodos()),
               Flexible(
                 child: FilterTodos(),
               ),

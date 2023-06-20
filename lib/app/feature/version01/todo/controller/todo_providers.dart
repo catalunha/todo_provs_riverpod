@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:todo_provs_riverpod/app/data/repositories/repositories_providers.dart';
 
-import '../../../core/models/todo_model.dart';
+import '../../../../core/models/todo_model.dart';
 import 'todo_states.dart';
 
 part 'todo_providers.g.dart';
@@ -44,7 +44,7 @@ part 'todo_providers.g.dart';
 
 @riverpod
 Future<int> toDosCounter(ToDosCounterRef ref) async {
-  final allTodos = await ref.watch(readToDosProvider.future);
+  final allTodos = await ref.watch(toDosFilteredProvider.future);
 
   return allTodos.length;
 }
@@ -66,6 +66,22 @@ FutureOr<List<TodoModel>> toDosFiltered(ToDosFilteredRef ref) async {
     _ => allTodos.toList()
   };
 }
+
+// @riverpod
+// List<TodoModel> toDosFiltered(ToDosFilteredRef ref) {
+//   final filteredBy = ref.watch(toDosFilteredByProvider);
+//   final allTodos = ref.watch(readToDosProvider);
+//   // return allTodos.maybeWhen(data: (data) => data.where((element) => element.isCompleted).toList(), orElse: ()=>[]);
+//   return switch (filteredBy) {
+//     ToDosFilter.completed => allTodos.maybeWhen(
+//         data: (data) => data.where((element) => element.isCompleted).toList(),
+//         orElse: () => []),
+//     ToDosFilter.unCompleted => allTodos.maybeWhen(
+//         data: (data) => data.where((element) => !element.isCompleted).toList(),
+//         orElse: () => []),
+//     _ => allTodos.when(data: (data) => data,error: (error, stackTrace) => [],loading: () => [],)
+//   };
+// }
 
 @riverpod
 class ToDosFilteredBy extends _$ToDosFilteredBy {
